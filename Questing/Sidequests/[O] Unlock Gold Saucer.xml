@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Profile>
+	<Name>Unlocking Gold Saucer</Name>
+	<BehaviorDirectory>../../Quest Behaviors</BehaviorDirectory>
+	
+	<Order>
+		<!-- It Could Happen to You -->
+		<If Condition="not IsQuestCompleted(65970)">
+			<If Condition="not HasQuest(65970)">
+				<GetTo ZoneId="130" XYZ="-78.8739, 4, -110.4296"/>
+				<If Condition="IsQuestAcceptQualified(65970)">
+					<PickupQuest NpcId="1011565" QuestId="65970" XYZ="-78.8739, 4, -110.4296"/>
+				</If>
+			</If>
+			
+			<If Condition="HasQuest(65970)">
+				<If Condition="GetQuestStep(65970) == 255">
+					<!-- cant GetTo the airship landing -->
+					<!-- <GetTo ZoneId="130" XYZ="-23.60571, 83.19999, -2.304138"/> -->
+					<If Condition="not (WorldManager.ZoneId == 130 and WorldManager.SubZoneId == 654)">
+						<GetTo ZoneId="130" XYZ="-23.33112, 10, -43.44244"/>
+						<UseTransport NpcId="1001834" DialogOption="0" XYZ="-23.33112, 10, -43.44244"/>
+					</If>
+					<HandOverPlus ItemIds="2001555" QuestId="65970" StepId="255" NpcId="1004433" XYZ="-23.60571, 83.19999, -2.304138"/>
+				</If>
+			</If>
+		</If>
+		
+		<!-- World Of Wonders -->
+		<If Condition="not IsQuestCompleted(65971)">
+			<If Condition="not HasQuest(65971)">
+				<GetTo ZoneId="144" XYZ="-38.89526, -2.793968E-06, 97.33728"/>
+				<If Condition="IsQuestAcceptQualified(65971)">
+					<PickupQuest NpcId="1011022" QuestId="65971" XYZ="-38.89526, -2.793968E-06, 97.33728"/>
+				</If>
+			</If>
+			<If Condition="HasQuest(65971) and GetQuestStep(65971) == 1">
+				<GetTo ZoneId="144" XYZ="-58.42849, 1.600334, 32.30082"/>
+				<TalkTo NpcId="1010448" XYZ="-54.00177, 1.6, 30.68579"/>
+			</If>
+			<If Condition="HasQuest(65971) and GetQuestStep(65971) == 2">
+				<GetTo ZoneId="144" XYZ="-58.42849, 1.600334, 32.30082"/>
+				<TalkTo NpcId="1011038" XYZ="-58.88464, 1.6, 27.63403"/>
+			</If>
+			<If Condition="HasQuest(65971) and GetQuestStep(65971) == 3">
+				<GetTo ZoneId="144" XYZ="-99.19891, -0.8629704, 66.11731"/>
+				<TalkTo NpcId="1010478" XYZ="-99.19891, -0.8629704, 66.11731"/>
+			</If>
+			<If Condition="HasQuest(65971) and GetQuestStep(65971) == 4">
+				<GetTo ZoneId="144" XYZ="21.53046, 3.99973, 39.90234"/>
+				<TalkTo NpcId="1011080" XYZ="21.53046, 3.99973, 39.90234"/>
+			</If>
+			<If Condition="HasQuest(65971) and GetQuestStep(65971) == 5">
+				<GetTo ZoneId="144" XYZ="123.3758, 13.00048, -14.89332"/>
+				<TalkTo NpcId="1011079" XYZ="125.0781, 13.00064, -13.77893"/>
+			</If>
+			<If Condition="HasQuest(65971) and GetQuestStep(65971) == 6">
+				<GetTo ZoneId="144" XYZ="-12.52765, 3.254643, -73.16705"/>
+				<TalkTo NpcId="1011084" XYZ="-12.52765, 3.254643, -73.16705"/>
+			</If>
+			<If Condition="HasQuest(65971) and GetQuestStep(65971) == 255">
+				<GetTo ZoneId="144" XYZ="-54.10973, 1.6, 33.56964"/>
+				<TurnIn QuestId="65971" NpcId="1010448" XYZ="-54.00177, 1.6, 30.68579"/>
+			</If>
+		</If>
+		
+	</Order>
+	
+</Profile>
